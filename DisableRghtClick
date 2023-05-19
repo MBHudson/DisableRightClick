@@ -1,0 +1,57 @@
+<html>
+
+
+window.addEventListener('contextmenu', function (e) { 
+  // do something here... 
+  e.preventDefault(); 
+}, false);
+
+
+<!-- NEXT -->
+
+document.addEventListener("contextmenu", function (e){
+    e.preventDefault();
+}, false);
+
+
+
+<!-- NEXT -->
+
+<script>
+    var el_up = document.getElementById("GFG_UP");
+    var el_down = document.getElementById("GFG_DOWN");
+    el_up.innerHTML =
+        "Click on the button to disable right click on image";
+          
+    function gfg_Run() {
+        document.addEventListener("contextmenu",                        
+          
+        function(e) {
+            if (e.target.nodeName === "IMG") {
+                e.preventDefault();
+            }
+        }, false);
+          
+        el_down.innerHTML = "Right click disabled on image";
+    }        
+</script>
+
+
+<!-- NEXT -->
+
+
+// With jQuery
+$(document).on({
+    "contextmenu": function (e) {
+        console.log("ctx menu button:", e.which); 
+
+        // Stop the context menu
+        e.preventDefault();
+    },
+    "mousedown": function(e) { 
+        console.log("normal mouse down:", e.which); 
+    },
+    "mouseup": function(e) { 
+        console.log("normal mouse up:", e.which); 
+    }
+});
